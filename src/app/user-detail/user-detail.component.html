@@ -1,0 +1,21 @@
+<div
+  *ngIf="loading"
+  class="loader row justify-content-center align-items-center"
+>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<button (click)="goBack()" class="m-4 btn btn-dark">Back</button>
+<div
+  class="user-detail d-flex flex-column justify-content-center align-items-center"
+  *ngIf="!loading"
+>
+  <img [src]="user.avatar" [alt]="user.firstName" />
+  <h6 class="mt-2 fw-bold">{{ user.first_name }} {{ user.last_name }}</h6>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <i class="bi bi-envelope"></i>
+    <h6 class="m-2 text-primary">{{ user.email }}</h6>
+  </div>
+</div>

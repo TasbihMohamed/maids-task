@@ -1,0 +1,11 @@
+<nav class="navbar-expand-lg navbar navbar-dark bg-dark justify-content-center">
+  <div class="m-1">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchId"
+      placeholder="Search by ID"
+      (input)="onSearch()"
+    />
+  </div>
+</nav>

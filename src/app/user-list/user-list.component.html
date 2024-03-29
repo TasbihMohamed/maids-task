@@ -1,0 +1,41 @@
+<div *ngIf="loading"
+class="loader row justify-content-center align-items-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="user-list" *ngIf="!loading">
+    <div class="row justify-content-center align-items-center">
+      <div
+        class="user-card m-3 col-md-3 col-6 shadow rounded d-flex flex-column justify-content-center align-items-center"
+        *ngFor="let user of users"
+        (click)="navigateToUserDetail(user.id)"
+      >
+        <img [src]="user.avatar" [alt]="user.firstName" />
+        <h6 class="mt-2">{{ user.first_name }} {{ user.last_name }}</h6>
+      </div>
+    </div>
+
+    <div
+      class="pagination m-2 d-flex justify-content-center align-items-center"
+      *ngIf="!searchValue">
+      <button
+        (click)="fetchUsers(page - 1)"
+        [disabled]="page === 1"
+        class="btn btn-primary m-1"
+      >
+        Previous
+      </button>
+      <button
+        (click)="fetchUsers(page + 1)"
+        class="btn btn-primary m-1"
+        [disabled]="page === 2"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
